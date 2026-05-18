@@ -1,71 +1,56 @@
-/* =========================
-NAVBAR SCROLL EFFECT
-========================= */
+// ===============================
+// SCROLL FADE ANIMATION
+// ===============================
 
-const nav = document.querySelector("nav");
-
-window.addEventListener("scroll", () => {
-
-    if(window.scrollY > 50){
-
-        nav.style.padding = "18px 7%";
-        nav.style.background = "rgba(255,255,255,0.9)";
-        nav.style.boxShadow = "0 5px 25px rgba(0,0,0,0.08)";
-
-    } else {
-
-        nav.style.padding = "28px 7%";
-        nav.style.background = "rgba(239,231,223,0.82)";
-        nav.style.boxShadow = "none";
-
-    }
-
-});
-
-
-
-/* =========================
-FADE UP ANIMATION
-========================= */
-
-const fadeElements = document.querySelectorAll(".fade-up");
+const fadeElements = document.querySelectorAll('.fade-up');
 
 const observer = new IntersectionObserver((entries) => {
 
     entries.forEach(entry => {
 
         if(entry.isIntersecting){
-
-            entry.target.classList.add("active");
-
+            entry.target.classList.add('show');
         }
 
     });
 
-},{
-    threshold:0.2
+}, {
+    threshold: 0.2
 });
 
-fadeElements.forEach(el => observer.observe(el));
+fadeElements.forEach(el => {
+    observer.observe(el);
+});
 
 
 
-/* =========================
-PROCESS TABS
-========================= */
 
-const processButtons = document.querySelectorAll(".process-buttons button");
-const processCards = document.querySelectorAll(".process-card");
+// ===============================
+// PROCESS TABS
+// ===============================
 
-processButtons.forEach((button,index) => {
+const processButtons = document.querySelectorAll('.process-buttons button');
+const processCards = document.querySelectorAll('.process-card');
 
-    button.addEventListener("click", () => {
+processButtons.forEach(button => {
 
-        processCards.forEach(card => {
-            card.classList.remove("active");
+    button.addEventListener('click', () => {
+
+        const target = button.dataset.target;
+
+        // remove active class
+        processButtons.forEach(btn => {
+            btn.classList.remove('active-tab');
         });
 
-        processCards[index].classList.add("active");
+        processCards.forEach(card => {
+            card.classList.remove('active');
+        });
+
+        // add active class
+        button.classList.add('active-tab');
+
+        document.getElementById(target).classList.add('active');
 
     });
 
@@ -73,19 +58,24 @@ processButtons.forEach((button,index) => {
 
 
 
-/* =========================
-HERO IMAGE PARALLAX
-========================= */
 
-const heroImage = document.querySelector(".office-image");
+// ===============================
+// NAVBAR BACKGROUND ON SCROLL
+// ===============================
 
-window.addEventListener("scroll", () => {
+const navbar = document.querySelector('nav');
 
-    let scroll = window.scrollY;
+window.addEventListener('scroll', () => {
 
-    if(heroImage){
+    if(window.scrollY > 50){
 
-        heroImage.style.transform = `translateY(${scroll * 0.08}px) scale(1.02)`;
+        navbar.style.background = "rgba(239,231,226,0.95)";
+        navbar.style.boxShadow = "0 4px 25px rgba(0,0,0,0.08)";
+
+    } else {
+
+        navbar.style.background = "rgba(239,231,226,0.88)";
+        navbar.style.boxShadow = "none";
 
     }
 
@@ -93,21 +83,25 @@ window.addEventListener("scroll", () => {
 
 
 
-/* =========================
-RIBBON FLOAT ANIMATION
-========================= */
 
-const ribbons = document.querySelectorAll(".ribbon");
+// ===============================
+// PARALLAX HERO EFFECT
+// ===============================
 
-window.addEventListener("mousemove",(e)=>{
+const ribbons = document.querySelectorAll('.floating-ribbon');
 
-    let x = e.clientX / window.innerWidth;
+window.addEventListener('scroll', () => {
 
-    ribbons.forEach((ribbon,index)=>{
+    const scrollY = window.scrollY;
 
-        let speed = (index + 1) * 12;
+    ribbons.forEach((ribbon, index) => {
 
-        ribbon.style.transform += ` translateX(${x * speed}px)`;
+        const speed = (index + 1) * 0.15;
+
+        ribbon.style.transform = `
+            translateY(${scrollY * speed}px)
+            rotate(${scrollY * 0.02}deg)
+        `;
 
     });
 
@@ -115,83 +109,43 @@ window.addEventListener("mousemove",(e)=>{
 
 
 
-/* =========================
-METHODS SLIDER
-========================= */
 
-const slider = document.querySelector(".methods-slider");
+// ===============================
+// SMOOTH SECTION SCROLL
+// ===============================
 
-let isDown = false;
-let startX;
-let scrollLeft;
+const navLinks = document.querySelectorAll('nav a');
 
-slider.addEventListener("mousedown",(e)=>{
+navLinks.forEach(link => {
 
-    isDown = true;
-    slider.classList.add("active");
+    link.addEventListener('click', (e) => {
 
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
+        e.preventDefault();
 
-});
+        const targetID = link.getAttribute('href');
+        const targetSection = document.querySelector(targetID);
 
-slider.addEventListener("mouseleave",()=>{
+        window.scrollTo({
+            top: targetSection.offsetTop - 100,
+            behavior: 'smooth'
+        });
 
-    isDown = false;
-
-});
-
-slider.addEventListener("mouseup",()=>{
-
-    isDown = false;
-
-});
-
-slider.addEventListener("mousemove",(e)=>{
-
-    if(!isDown) return;
-
-    e.preventDefault();
-
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2;
-
-    slider.scrollLeft = scrollLeft - walk;
+    });
 
 });
 
 
 
-/* =========================
-AUTO SLIDE
-========================= */
 
-let autoSlide = setInterval(()=>{
+// ===============================
+// HOVER IMAGE EFFECT
+// ===============================
 
-    slider.scrollLeft += 1.2;
+const methodCards = document.querySelectorAll('.method-card');
 
-    if(
-        slider.scrollLeft + slider.clientWidth 
-        >= slider.scrollWidth
-    ){
+methodCards.forEach(card => {
 
-        slider.scrollLeft = 0;
-
-    }
-
-},20);
-
-
-
-/* =========================
-FLOATING CARD EFFECT
-========================= */
-
-const cards = document.querySelectorAll(".method-card");
-
-cards.forEach(card => {
-
-    card.addEventListener("mousemove",(e)=>{
+    card.addEventListener('mousemove', (e) => {
 
         const rect = card.getBoundingClientRect();
 
@@ -210,7 +164,7 @@ cards.forEach(card => {
 
     });
 
-    card.addEventListener("mouseleave",()=>{
+    card.addEventListener('mouseleave', () => {
 
         card.style.transform = `
             perspective(1000px)
@@ -225,45 +179,160 @@ cards.forEach(card => {
 
 
 
-/* =========================
-SMOOTH NAVIGATION
-========================= */
 
-document.querySelectorAll('nav a').forEach(anchor => {
+// ===============================
+// AUTO SCROLL METHODS SLIDER
+// ===============================
 
-    anchor.addEventListener('click', function (e) {
+const slider = document.querySelector('.methods-slider');
 
-        e.preventDefault();
+let autoScroll;
 
-        const target = document.querySelector(this.getAttribute('href'));
+function startAutoScroll(){
 
-        target.scrollIntoView({
+    autoScroll = setInterval(() => {
+
+        slider.scrollBy({
+            left: 320,
             behavior: 'smooth'
         });
 
+        // reset slider
+        if(slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10){
+
+            slider.scrollTo({
+                left: 0,
+                behavior: 'smooth'
+            });
+
+        }
+
+    }, 4000);
+
+}
+
+if(slider){
+
+    startAutoScroll();
+
+    slider.addEventListener('mouseenter', () => {
+        clearInterval(autoScroll);
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        startAutoScroll();
+    });
+
+}
+
+
+
+
+// ===============================
+// FLOATING CARD MOTION
+// ===============================
+
+const floatingCards = document.querySelectorAll('.floating-card');
+
+window.addEventListener('mousemove', (e) => {
+
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
+
+    floatingCards.forEach((card, index) => {
+
+        const moveX = (x - 0.5) * (20 + index * 10);
+        const moveY = (y - 0.5) * (20 + index * 10);
+
+        card.style.transform = `
+            translate(${moveX}px, ${moveY}px)
+        `;
+
     });
 
 });
 
 
 
-/* =========================
-PROCESS IMAGE HOVER ZOOM
-========================= */
 
-const processImages = document.querySelectorAll(".process-image img");
+// ===============================
+// HERO IMAGE ZOOM ON SCROLL
+// ===============================
 
-processImages.forEach(img => {
+const heroImage = document.querySelector('.office-image');
 
-    img.addEventListener("mouseenter",()=>{
+window.addEventListener('scroll', () => {
 
-        img.style.transform = "scale(1.08)";
+    if(heroImage){
 
-    });
+        const scale = 1 + window.scrollY * 0.00015;
 
-    img.addEventListener("mouseleave",()=>{
+        heroImage.style.transform = `scale(${scale})`;
 
-        img.style.transform = "scale(1)";
+    }
+
+});
+
+
+
+
+// ===============================
+// PROCESS SECTION APPEAR
+// ===============================
+
+const processSection = document.querySelector('.process-section');
+
+window.addEventListener('scroll', () => {
+
+    if(!processSection) return;
+
+    const sectionTop = processSection.offsetTop;
+    const scrollPosition = window.scrollY + window.innerHeight;
+
+    if(scrollPosition > sectionTop + 100){
+
+        processSection.style.opacity = "1";
+        processSection.style.transform = "translateY(0px)";
+
+    }
+
+});
+
+
+
+
+// ===============================
+// INITIAL PROCESS STYLE
+// ===============================
+
+if(processSection){
+
+    processSection.style.opacity = "0";
+    processSection.style.transform = "translateY(80px)";
+    processSection.style.transition = "1s ease";
+
+}
+
+
+
+
+// ===============================
+// METHODS CARD CLICK ANIMATION
+// ===============================
+
+methodCards.forEach(card => {
+
+    card.addEventListener('click', () => {
+
+        card.style.transition = "0.2s";
+
+        card.style.transform = "scale(0.96)";
+
+        setTimeout(() => {
+
+            card.style.transform = "scale(1)";
+
+        }, 180);
 
     });
 
@@ -271,12 +340,25 @@ processImages.forEach(img => {
 
 
 
-/* =========================
-PAGE LOAD ANIMATION
-========================= */
 
-window.addEventListener("load",()=>{
+// ===============================
+// LOADING ANIMATION
+// ===============================
+
+window.addEventListener('load', () => {
 
     document.body.style.opacity = "1";
 
 });
+
+document.body.style.opacity = "0";
+document.body.style.transition = "opacity 1s ease";
+
+
+
+
+// ===============================
+// MOBILE MENU FUTURE READY
+// ===============================
+
+console.log("Gender Equity website fully loaded.");
