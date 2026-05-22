@@ -1185,6 +1185,46 @@
       pointer-events:none;
     }
 
+  
+    /* RESOURCE CARD IMAGE REPLACEMENTS */
+
+    .source-visual.has-image{
+      height:190px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
+      background:var(--paper);
+    }
+
+    .source-visual.has-image::before,
+    .source-visual.has-image::after{
+      display:none;
+    }
+
+    .source-visual.has-image img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      border-radius:18px;
+      filter:saturate(.78) sepia(.06) contrast(.94) brightness(1.02);
+    }
+
+    .source-visual.has-image.source-logo-dark{
+      background:#f6f0e9;
+    }
+
+    .source-visual.has-image.source-logo-dark img{
+      filter:saturate(.82) sepia(.08) contrast(.92) brightness(1.04);
+    }
+
+    .source-visual.has-image span{
+      left:18px;
+      top:18px;
+      background:rgba(251,247,241,.92);
+      backdrop-filter:blur(6px);
+    }
+
   </style>
 </head>
 
@@ -1453,7 +1493,7 @@
 
     <div class="sources-grid fade-up">
       <a href="https://gracepapers.com.au/" target="_blank" class="source-card partner">
-        <div class="source-visual grace-visual"><span>Partner</span></div>
+        <div class="source-visual has-image grace-visual"><span>Partner</span><img src="resource-grace-papers.png" alt="Grace Papers workplace equality visual"></div>
         <div class="source-content">
           <p class="source-category">Partner Context</p>
           <h3>Grace Papers</h3>
@@ -1463,7 +1503,7 @@
       </a>
 
       <a href="https://www.wgea.gov.au/" target="_blank" class="source-card data">
-        <div class="source-visual wgea-visual"><span>Data</span></div>
+        <div class="source-visual has-image wgea-visual"><span>Data</span><img src="resource-pay-gap.png" alt="Gender pay gap visual"></div>
         <div class="source-content">
           <p class="source-category">Workplace Data</p>
           <h3>Workplace Gender Equality Agency</h3>
@@ -1473,7 +1513,7 @@
       </a>
 
       <a href="https://www.dca.org.au/news/media-releases/flex-work-gender-pay-gap" target="_blank" class="source-card data">
-        <div class="source-visual dca-visual"><span>Flex</span></div>
+        <div class="source-visual has-image source-logo-dark dca-visual"><span>Flex</span><img src="resource-dca.png" alt="Diversity Council Australia logo"></div>
         <div class="source-content">
           <p class="source-category">Flexible Work</p>
           <h3>Diversity Council Australia</h3>
@@ -1483,7 +1523,7 @@
       </a>
 
       <a href="https://www.aihw.gov.au/reports/australias-welfare/employment-unemployment" target="_blank" class="source-card data">
-        <div class="source-visual aihw-visual"><span>Labour</span></div>
+        <div class="source-visual has-image source-logo-dark aihw-visual"><span>Labour</span><img src="resource-aihw.png" alt="Australian Institute of Health and Welfare logo"></div>
         <div class="source-content">
           <p class="source-category">Labour Context</p>
           <h3>AIHW Employment and Unemployment</h3>
