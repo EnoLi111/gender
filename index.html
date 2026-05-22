@@ -2685,6 +2685,111 @@
       }
     }
 
+  
+    /* INTERVENTION METHOD CARDS WITH CUSTOM IMAGES */
+
+    .methods,
+    .intervention{
+      overflow:hidden;
+    }
+
+    .method-grid,
+    .intervention-grid{
+      display:grid !important;
+      grid-template-columns:repeat(4, minmax(260px, 1fr)) !important;
+      gap:24px !important;
+      align-items:stretch !important;
+    }
+
+    .method-card,
+    .intervention-card{
+      padding:0 !important;
+      overflow:hidden !important;
+      border-radius:30px !important;
+      background:rgba(251,247,241,.92) !important;
+      border:1px solid rgba(29,29,27,.10) !important;
+      box-shadow:0 18px 42px rgba(29,29,27,.045) !important;
+      display:flex !important;
+      flex-direction:column !important;
+      min-height:520px !important;
+    }
+
+    .method-image{
+      width:100% !important;
+      height:245px !important;
+      overflow:hidden !important;
+      background:#d8d0c7 !important;
+      border-bottom:1px solid rgba(29,29,27,.10) !important;
+      flex:0 0 auto !important;
+    }
+
+    .method-image img{
+      width:100% !important;
+      height:100% !important;
+      display:block !important;
+      object-fit:cover !important;
+      object-position:center !important;
+      filter:saturate(.88) sepia(.04) contrast(.96) brightness(1.02) !important;
+      transition:transform .65s ease !important;
+    }
+
+    .method-card:hover .method-image img,
+    .intervention-card:hover .method-image img{
+      transform:scale(1.045) !important;
+    }
+
+    .method-card > span,
+    .intervention-card > span{
+      display:block !important;
+      margin:34px 34px 16px !important;
+      font-size:.78rem !important;
+      letter-spacing:.16em !important;
+      text-transform:uppercase !important;
+      color:var(--sage-dark) !important;
+      font-weight:900 !important;
+    }
+
+    .method-card h3,
+    .intervention-card h3{
+      margin:0 34px 18px !important;
+      font-family:"Cormorant Garamond", serif !important;
+      font-size:clamp(2rem, 2.2vw, 2.75rem) !important;
+      line-height:1.02 !important;
+      letter-spacing:-.04em !important;
+      color:var(--ink) !important;
+    }
+
+    .method-card p,
+    .intervention-card p{
+      margin:0 34px 36px !important;
+      font-size:.98rem !important;
+      line-height:1.78 !important;
+      color:#625d56 !important;
+    }
+
+    @media(max-width:1300px){
+      .method-grid,
+      .intervention-grid{
+        grid-template-columns:repeat(2, minmax(260px, 1fr)) !important;
+      }
+    }
+
+    @media(max-width:720px){
+      .method-grid,
+      .intervention-grid{
+        grid-template-columns:1fr !important;
+      }
+
+      .method-card,
+      .intervention-card{
+        min-height:auto !important;
+      }
+
+      .method-image{
+        height:230px !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -2896,8 +3001,8 @@
 
     <div class="method-slider" id="methodSlider">
       <article class="method-card">
-        <div class="method-visual"></div>
         <div class="method-content">
+          <div class="method-image"><img src="intervention-grace-papers-network.png" alt="Grace Papers network connecting workers, community groups, unions and NGOs"></div>
           <span>Grace Papers(+)</span>
           <h3>Extend support beyond employer-based systems.</h3>
           <p>Propose a community and advocacy-facing sector that reaches workers who may not access formal workplace equality programs.</p>
@@ -2905,8 +3010,8 @@
       </article>
 
       <article class="method-card">
-        <div class="method-visual sage"></div>
         <div class="method-content">
+          <div class="method-image"><img src="intervention-public-communication.png" alt="Digital communication tools translating research into accessible information"></div>
           <span>Public communication</span>
           <h3>Translate research into accessible information.</h3>
           <p>Use digital storytelling, accessible data, and clear recommendations to make gendered precarious work visible to broader audiences.</p>
@@ -2914,8 +3019,8 @@
       </article>
 
       <article class="method-card">
-        <div class="method-visual clay"></div>
         <div class="method-content">
+          <div class="method-image"><img src="intervention-community-partnerships.png" alt="Community partnership meeting with workers and organisations"></div>
           <span>Community partnerships</span>
           <h3>Work through organisations closer to precarious workers.</h3>
           <p>Connect with community organisations, trade unions, NGOs, and advocacy groups to reach people outside stable employer systems.</p>
@@ -2923,8 +3028,8 @@
       </article>
 
       <article class="method-card">
-        <div class="method-visual rose"></div>
         <div class="method-content">
+          <div class="method-image"><img src="intervention-advocacy.png" alt="Consultancy and community advocacy connected through broader social change"></div>
           <span>Advocacy</span>
           <h3>Balance consultancy with broader social change.</h3>
           <p>Position Grace Papers(+) as a way to educate, mobilise, and empower workers while strengthening Grace Papers’ wider impact.</p>
@@ -3234,4 +3339,4 @@
     });
   </script>
 </body>
-</html>        
+</html>
