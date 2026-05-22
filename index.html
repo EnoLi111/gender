@@ -460,6 +460,48 @@
       letter-spacing:.15em;
     }
 
+
+    /* Canva office women image asset */
+
+    .hero-image-wrap{
+      position:absolute;
+      left:50%;
+      bottom:8%;
+      width:82%;
+      max-width:650px;
+      z-index:4;
+      transform:translateX(-50%);
+      animation:assetFloat 5s ease-in-out infinite;
+      filter:drop-shadow(0 28px 34px rgba(29,29,27,.17));
+    }
+
+    .hero-image-asset{
+      display:block;
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      filter:saturate(.72) sepia(.12) contrast(.94) brightness(1.03);
+      mix-blend-mode:multiply;
+    }
+
+    @keyframes assetFloat{
+      0%,100%{
+        transform:translateX(-50%) translateY(0);
+      }
+      50%{
+        transform:translateX(-50%) translateY(-14px);
+      }
+    }
+
+    .hero-art::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, transparent 72%, rgba(241,235,228,.2));
+      pointer-events:none;
+      z-index:5;
+    }
+
     /* CONTENT */
 
     .big-statement{
@@ -1103,6 +1145,7 @@
         grid-template-columns:1fr;
       }
       .hero-art{min-height:560px;}
+      .hero-image-wrap{width:78%;bottom:9%;}
       .sources-grid{grid-template-columns:repeat(2,1fr);}
       .methods-head{align-items:start;flex-direction:column;}
     }
@@ -1112,6 +1155,11 @@
       nav ul{display:none;}
       .hero{padding:115px 5% 60px;}
       .hero-art{min-height:460px;}
+      .hero-image-wrap{width:88%;bottom:10%;}
+      .note{font-size:.76rem;padding:10px 12px;}
+      .note.n2{left:5%;top:12%;}
+      .note.n1{right:5%;top:18%;}
+      .note.n3{right:5%;bottom:8%;}
       .journey-top{align-items:flex-start;flex-direction:column;gap:4px;}
       .journey-line{
         overflow-x:auto;
@@ -1206,13 +1254,8 @@
       <div class="note n2">Who gets access?</div>
       <div class="note n3">Invisible labour</div>
 
-      <div class="woman">
-        <div class="hair"></div>
-        <div class="face"></div>
-        <div class="body"></div>
-        <div class="shirt"></div>
-        <div class="arm"></div>
-        <div class="laptop"></div>
+      <div class="hero-image-wrap">
+        <img src="office-women.png" alt="Women working together in an office" class="hero-image-asset">
       </div>
     </div>
   </section>
