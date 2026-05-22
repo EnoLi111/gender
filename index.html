@@ -2791,282 +2791,60 @@
     }
 
   
-    /* FINAL COVER LAYOUT: LESS EMPTY SPACE, STRONGER BALANCE */
+    /* WHY IT IS GENDERED: PHOTO REPLACEMENT */
 
-    .hero{
-      min-height:calc(100vh - 86px) !important;
-      display:grid !important;
-      grid-template-columns:minmax(600px, 1.08fr) minmax(460px, .92fr) !important;
-      align-items:center !important;
-      gap:38px !important;
-      padding:102px 7% 58px !important;
-      background:
-        radial-gradient(circle at 18% 42%, rgba(251,247,241,.82), transparent 38%),
-        radial-gradient(circle at 78% 50%, rgba(154,167,150,.12), transparent 34%),
-        linear-gradient(180deg, #f3ede6 0%, #f0e9e1 100%) !important;
-      position:relative !important;
-      overflow:hidden !important;
-    }
-
-    .hero::before{
-      content:"";
-      position:absolute;
-      right:7.8%;
-      top:17%;
-      width:12px;
-      height:12px;
-      border-radius:45% 55% 45% 55%;
-      background:rgba(117,130,113,.62);
-      box-shadow:
-        -18px 5px 0 rgba(117,130,113,.25),
-        14px 10px 0 rgba(117,130,113,.22),
-        1px 22px 0 rgba(117,130,113,.18);
-      transform:rotate(18deg);
-      opacity:.9;
-      z-index:0;
-    }
-
-    .hero-copy{
-      max-width:980px !important;
-      position:relative !important;
-      z-index:4 !important;
-      align-self:center !important;
-      transform:translateY(-8px);
-    }
-
-    .hero-label{
-      display:flex !important;
-      align-items:center !important;
-      gap:16px !important;
-      margin-bottom:24px !important;
-      color:var(--sage-dark) !important;
-      opacity:.92 !important;
-      font-size:.73rem !important;
-      letter-spacing:.20em !important;
-      font-weight:900 !important;
-      text-transform:uppercase !important;
-    }
-
-    .hero-label::before{
-      content:"";
-      width:40px;
-      height:2px;
-      background:var(--sage-dark);
-      opacity:.75;
-      display:block;
-    }
-
-    .hero-title-final{
-      font-family:"Cormorant Garamond", serif !important;
-      color:var(--ink) !important;
-      font-weight:600 !important;
-      line-height:.86 !important;
-      letter-spacing:-.06em !important;
-      margin:0 !important;
-      max-width:980px !important;
-      font-size:clamp(6.2rem, 8.6vw, 10.4rem) !important;
-    }
-
-    .hero-title-final .line{
-      display:block !important;
-      white-space:nowrap !important;
-    }
-
-    .hero-title-final .line-1{
-      color:var(--ink) !important;
-    }
-
-    .hero-title-final .line-2{
-      margin-top:.02em !important;
-      color:var(--ink) !important;
-    }
-
-    .hero-title-final .line-3{
-      margin-top:.02em !important;
-      color:var(--sage-dark) !important;
-      font-style:italic !important;
-      transform:translateX(.03em);
-    }
-
-    .hero-title-final em{
-      color:var(--sage-dark) !important;
-      font-style:italic !important;
-      font-weight:500 !important;
-      letter-spacing:-.055em !important;
-    }
-
-    .hero-description{
-      margin-top:34px !important;
-      max-width:720px !important;
-      font-size:1.05rem !important;
-      line-height:1.78 !important;
-      color:#5f5a54 !important;
-    }
-
-    .hero-progress{
-      margin-top:30px !important;
-      max-width:690px !important;
-      padding:20px 24px 18px !important;
-      border-radius:24px !important;
-      background:rgba(251,247,241,.78) !important;
-      border:1px solid rgba(29,29,27,.08) !important;
-      box-shadow:0 16px 38px rgba(29,29,27,.045) !important;
-      backdrop-filter:blur(8px) !important;
-    }
-
-    .hero-progress-top{
-      margin-bottom:16px !important;
-    }
-
-    .hero-progress-top span{
-      font-size:.72rem !important;
-      letter-spacing:.15em !important;
-    }
-
-    .hero-progress-top strong{
-      font-size:.82rem !important;
-      color:#615b54 !important;
-    }
-
-    .progress-line{
-      top:35px !important;
-      left:54px !important;
-      right:54px !important;
-    }
-
-    .step span{
-      width:39px !important;
-      height:39px !important;
-      font-size:.9rem !important;
-    }
-
-    .step small{
-      margin-top:8px !important;
-      font-size:.75rem !important;
-    }
-
-    .hero-art{
-      min-height:600px !important;
-      position:relative !important;
-      overflow:visible !important;
-      border:0 !important;
-      border-radius:0 !important;
-      background:transparent !important;
-      box-shadow:none !important;
-      align-self:center !important;
-      z-index:3 !important;
-    }
-
-    .hero-soft-panel,
-    .office-grid,
-    .ribbon,
-    .note,
-    .bubble-stack,
-    .hero-art::after{
-      display:none !important;
-      content:none !important;
-    }
-
-    .hero-illustration-final{
-      position:absolute !important;
-      left:50% !important;
-      top:51% !important;
-      width:min(96%, 660px) !important;
-      transform:translate(-50%, -50%) !important;
-      filter:drop-shadow(0 28px 38px rgba(29,29,27,.11)) !important;
-      animation:heroFloatFinal 6.2s ease-in-out infinite !important;
-    }
-
-    .hero-illustration-final::before{
-      content:"";
-      position:absolute;
-      inset:18% 2% 0 2%;
-      background:radial-gradient(circle, rgba(154,167,150,.14), transparent 65%);
-      filter:blur(8px);
-      z-index:-1;
-    }
-
-    .hero-image-asset{
+    .gendered-photo-wrap{
       width:100% !important;
-      height:auto !important;
+      max-width:760px !important;
+      aspect-ratio:1.55 / 1 !important;
+      border-radius:34px !important;
+      overflow:hidden !important;
+      background:#e7ded4 !important;
+      border:1px solid rgba(29,29,27,.10) !important;
+      box-shadow:0 26px 70px rgba(29,29,27,.08) !important;
+      position:relative !important;
+    }
+
+    .gendered-photo-wrap::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(243,237,230,.04), rgba(243,237,230,.18)),
+        radial-gradient(circle at 50% 45%, transparent 42%, rgba(243,237,230,.12));
+      pointer-events:none;
+      mix-blend-mode:screen;
+    }
+
+    .gendered-photo{
+      width:100% !important;
+      height:100% !important;
       display:block !important;
-      object-fit:contain !important;
-      background:transparent !important;
-      border:0 !important;
-      border-radius:0 !important;
-      filter:saturate(.86) sepia(.04) contrast(.96) brightness(1.03) !important;
+      object-fit:cover !important;
+      object-position:center !important;
+      filter:saturate(.78) sepia(.12) contrast(.92) brightness(1.05) !important;
+      transform:scale(1.02);
     }
 
-    @keyframes heroFloatFinal{
-      0%,100%{ transform:translate(-50%, -50%) translateY(0); }
-      50%{ transform:translate(-50%, -50%) translateY(-8px); }
+    #reality,
+    .reality,
+    .gendered-section{
+      scroll-margin-top:90px;
     }
 
-    @media(max-width:1250px){
-      .hero{
-        grid-template-columns:1fr !important;
-        gap:12px !important;
-        padding:104px 7% 70px !important;
-      }
-
-      .hero-copy{
-        max-width:920px !important;
-        transform:none;
-      }
-
-      .hero-title-final{
-        font-size:clamp(5.2rem, 11vw, 8.2rem) !important;
-      }
-
-      .hero-title-final .line{
-        white-space:normal !important;
-      }
-
-      .hero-art{
-        min-height:390px !important;
-      }
-
-      .hero-illustration-final{
-        position:relative !important;
-        left:auto !important;
-        top:auto !important;
-        transform:none !important;
-        width:min(58%, 540px) !important;
-        margin:0 auto !important;
-      }
-
-      @keyframes heroFloatFinal{
-        0%,100%{ transform:translateY(0); }
-        50%{ transform:translateY(-8px); }
-      }
+    #reality .split,
+    #reality .reality-grid,
+    .reality-grid,
+    .gendered-grid{
+      align-items:center !important;
+      gap:64px !important;
     }
 
-    @media(max-width:720px){
-      .hero{
-        padding:100px 5% 62px !important;
-      }
-
-      .hero-title-final{
-        font-size:clamp(3.6rem, 16vw, 5.4rem) !important;
-        letter-spacing:-.045em !important;
-      }
-
-      .hero-description{
-        font-size:.96rem !important;
-        margin-top:28px !important;
-      }
-
-      .hero-progress{
-        padding:18px 18px 16px !important;
-        margin-top:28px !important;
-      }
-
-      .hero-art{
-        min-height:300px !important;
-      }
-
-      .hero-illustration-final{
-        width:min(84%, 420px) !important;
+    @media(max-width:900px){
+      .gendered-photo-wrap{
+        max-width:100% !important;
+        border-radius:26px !important;
+        aspect-ratio:1.35 / 1 !important;
       }
     }
 
@@ -3091,10 +2869,10 @@
   <section class="hero" id="illusion">
     <div class="hero-left fade-up">
       <p class="eyebrow">Gender at Work</p>
-      <h1 class="hero-title-final" aria-label="Who gets access to workplace equality?">
-        <span class="line line-1">Who gets access</span>
-        <span class="line line-2">to <em>workplace</em></span>
-        <span class="line line-3">equality?</span>
+      <h1 class="hero-title-bm" aria-label="Who gets access to workplace equality?">
+        <span>Who gets access</span>
+        <span>to <em>workplace</em></span>
+        <span>equality?</span>
       </h1>
       <p class="hero-description">
         Workplace equality initiatives often appear inclusive, but access to support is shaped by employment status, organisational visibility, and employer-based systems. This project examines how precarious work is gendered, and why workers outside formal workplace structures may be excluded from existing equality support.
@@ -3137,32 +2915,15 @@
       </div>
     </div>
 
-    <div class="hero-art fade-up">
-      <div class="hero-illustration-final">
-        <img
-          src="office-women-transparent.png"
-          onerror="this.onerror=null; this.src='office-women.png';"
-          alt="Diverse women working together in an office"
-          class="hero-image-asset"
-        >
-      </div>
-    </div>
-  </section>
+    
+        <div class="gendered-photo-wrap fade-up">
+          <img
+            src="gendered-work-pressure.png"
+            alt="A woman working late at a laptop, showing pressure and exhaustion from work"
+            class="gendered-photo"
+          >
+        </div>
 
-  <section class="big-statement fade-up" id="reality">
-    <h2>
-      Behind the language of inclusion exists another reality — <em>insecure, unstable, and invisible labour.</em>
-    </h2>
-  </section>
-
-  <section class="split-section fade-up">
-    <div>
-      <p class="section-tag">The hidden reality</p>
-      <h2>Precarious work sits outside stable systems.</h2>
-      <p>
-        Precarious workers are often in insecure, casual, part-time, or unstable employment. They may have limited access to workplace communication, career progression, HR systems, and formal support.
-      </p>
-    </div>
 
     <div class="visual-card policy">
       <div class="precarious-image-wrap">
